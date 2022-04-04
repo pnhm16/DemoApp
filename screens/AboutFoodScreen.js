@@ -19,11 +19,58 @@ import {
 //component = function
 function AboutFoodScreen(props) {
   return (
+    
     <View
       style={{
         backgroundColor: '#F0F8FF',
         flex: 100,
       }}>
+        <View>
+  <Text>Nurtition Advice</Text>
+  <LineChart
+    data={{
+      labels: ["Fat", "Meat", "Vegetable", "Fish", "Powder", "Extra things ..."],
+      datasets: [
+        {
+          data: [
+            Math.random() * 100,
+            Math.random() * 100,
+            Math.random() * 100,
+            Math.random() * 100,
+            Math.random() * 100,
+            Math.random() * 100
+          ]
+        }
+      ]
+    }}
+    width={Dimensions.get("window").width} // from react-native
+    height={220}
+    yAxisLabel="$"
+    yAxisSuffix="k"
+    yAxisInterval={1} // optional, defaults to 1
+    chartConfig={{
+      backgroundColor: "#e26a00",
+      backgroundGradientFrom: "#fb8c00",
+      backgroundGradientTo: "#ffa726",
+      decimalPlaces: 2, // optional, defaults to 2dp
+      color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+      labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+      style: {
+        borderRadius: 16
+      },
+      propsForDots: {
+        r: "6",
+        strokeWidth: "2",
+        stroke: "#ffa726"
+      }
+    }}
+    bezier
+    style={{
+      marginVertical: 8,
+      borderRadius: 16
+    }}
+  />
+</View>
       <View
         style={{
           flex: 10,
@@ -296,8 +343,7 @@ function AboutFoodScreen(props) {
             fontSize:20,
             marginHorizontal:20,
           }}>
-          Chỗ này chém gió viết linh tinh nhưng t không nghĩ ra nội dung gì nên để minh họa thế này
-          có gì anh em thêm nội dung vào nhá. Yêu anh em 3000 bé hơn ba (tại nó không cho dùng dấu bé hơn).
+          
         </Text>
       </View>
     </View>
